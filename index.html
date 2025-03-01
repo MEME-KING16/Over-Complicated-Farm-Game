@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Toast.css">
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
+</head>
+<body>
+    <span id="inventory" style="display: none;">
+        <center><h1>Inventory</h1><br><span id="inventoryCont"></span></center>
+        <button onclick="closeInventory('Close')">Back</button>
+    </span>
+    <span id="game">
+        <span id="Level">Level</span> <span id="lvl">0</span>: <progress id="xp" max="100" value="0"></progress>
+        <span>Money:$</span><span id="money">100</span><br>
+        <span id="fields"></span><br>
+        <button onclick="buy()">Get New Field</button>
+        <button onclick="store(true)">Store</button>
+        <button onclick="openInventory()">Inventory</button>
+
+        <select name="Crop" id="cropsel" onchange="cropselected=document.getElementById('cropsel').value"></select>
+    </span>
+    <span id="store" style="display: none;">
+        <span id="items">
+            <span id="allitems">
+                <button onclick="storetransaction('wheat')">Wheat</button>
+                <button onclick="storetransaction('wheatseeds')">Wheat Seeds</button>
+            </span>
+            <button onclick="store(false)">Close</button>
+        </span>
+        <span id="storetransaction" style="display: none;">
+            <center>
+            <h1 id="iname"></h1>
+            <span id="buyp"></span>&nbsp;|&nbsp;<span id="sellp"></span><br>
+            <button onclick="inpadd(-1)">-</button><input type="number" size="1" min="0" id="inp"><button onclick="inpadd(1)">+</button><br>
+            <span id="buysellbuttons"></span>
+            <button onclick="storetransaction('Close')">Back</button>
+            <center>
+        </span>
+    </span>
+
+</body>
+
+<script src="Toast.js"></script>
+<script src="Achievements.js"></script>
+<script src="modapi.js"></script>
+<script src="script.js"></script>
+</html>

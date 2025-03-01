@@ -1,0 +1,42 @@
+.field {
+    background-image: url("assets/field.png");
+    display: inline-block;
+    position: relative;
+    background-size: contain;
+}
+.empty{
+    color: rgb(0, 0, 0,0.1);
+}
+.empty:hover {
+    color: rgb(0, 0, 0, 0.3);
+}
+.crop {
+    opacity: 0.9;
+}
+.crop:hover {
+    opacity: 1;
+}
+
+.infected {
+        filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+body {
+    background-image: url("assets/Background.png");
+  height: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+    background: none;
+}
+
+select {
+    background: none;
+}
+
+input {
+    background: transparent;
+}
