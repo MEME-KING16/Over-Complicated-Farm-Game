@@ -64,7 +64,7 @@ function makeGrid(array,index) {
                     if(Achievements["The Welcoming Wheat"] == 0) {
                         Grant("The Welcoming Wheat")
                     }
-                    if(game.stats.lifetimewheat > 100 && Achievements["Dedicated Wheat Harvester"] == 0)
+                    if(game.stats.lifetimewheat.amount > 100 && Achievements["Dedicated Wheat Harvester"] == 0)
                         Grant("Dedicated Wheat Harvester")
 
                     game.wheatseeds = game.wheatseeds - 1
@@ -142,10 +142,10 @@ let game = {
     lvl:0,
     xp:0,
     xpreq:100,
-    version:"Over-Complicated-Farm-Game-v0.2.0-DEV-SNAPSHOT+20250228",
+    version:"Over-Complicated-Farm-Game-v0.2.0-rc.1",
     something:0,
     stats:{
-        lifetimewheat:0
+        lifetimewheat: {amount:0, displayName:"Lifetime Wheat"}
     }
 }
 
@@ -347,6 +347,21 @@ function closeInventory() {
     document.getElementById("game").style.display = "block"
     document.getElementById("inventory").style.display = "none"
     document.getElementById("inventoryCont").innerHTML = ""
+}
+
+function openStats() {
+    document.getElementById("game").style.display = "none"
+    document.getElementById("stats").style.display = "block"
+    document.getElementById("stats").innerHTML = ""
+    Object.entries(game.stats).forEach(([key, { amount, displayName }]) => {
+        document.getElementById("stats").innerHTML += `${displayName}: ${amount}</br>`
+      });
+      document.getElementById("stats").innerHTML += `<button onclick="closeStats()">Back</button>`
+}
+
+function closeStats() {
+    document.getElementById("game").style.display = "block"
+    document.getElementById("stats").style.display = "none"
 }
 
 function lvlcheck() {
