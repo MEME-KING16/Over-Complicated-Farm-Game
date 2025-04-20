@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
 </head>
 <body>
+    <span id="stats"></span>
     <span id="inventory" style="display: none;">
         <center><h1>Inventory</h1><br><span id="inventoryCont"></span></center>
         <button onclick="closeInventory('Close')">Back</button>
@@ -20,6 +21,7 @@
         <button onclick="buy()">Get New Field</button>
         <button onclick="store(true)">Store</button>
         <button onclick="openInventory()">Inventory</button>
+        <button onclick="openStats()">Stats</button>
 
         <select name="Crop" id="cropsel" onchange="cropselected=document.getElementById('cropsel').value"></select>
     </span>
