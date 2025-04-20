@@ -39,3 +39,9 @@ class Item {
         this.displayName = displayName
     }
 }
+
+class Stat {
+    constructor(id,displayName) {
+        game.stats[id].displayName = displayName
+    }
+}
