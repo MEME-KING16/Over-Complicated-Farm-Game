@@ -15,7 +15,7 @@ class Advancement {
 }
 
 
-class Croptype {
+class CropType {
     constructor(name,svgIconForCrop,svgIconForInfectedCrop,svgIconForGrowingCrop,svgIconForInfectedGrowingCrop,cropBuy,cropSell,seedBuy,seedSell) {
         crops.push(name)
         ico[name] = svgIconForCrop
@@ -24,7 +24,8 @@ class Croptype {
         ico["infectedgrowing"+name] = svgIconForInfectedGrowingCrop
         game[name] = 0
         game[name+"seeds"] = 0
-        game.stats["lifetime"+name] = 0
+        let stat = new Stat("lifetime"+name,"Lifetime "+capitalizeFirstLetter(name))
+        game.stats[stat.id] = stat
         prices[name] = {buy:cropBuy,sell:cropSell}
         prices[name+"seeds"] = {buy:seedBuy,sell:seedSell}
         items.push(new Item(name))
@@ -32,6 +33,13 @@ class Croptype {
         document.getElementById("allitems").innerHTML += `<button onclick="storetransaction('${name}')">${capitalizeFirstLetter(name)}</button><button onclick="storetransaction('${name}seeds')">${capitalizeFirstLetter(name)} Seeds</button>`
     }
 }
+
+/**
+ * @deprecated The class Croptype is deprecated and will be removed in a future update.
+ * Use CropType instead.
+ */
+const Croptype = CropType;
+
 
 class Item {
     constructor(id,displayName) {
@@ -42,6 +50,8 @@ class Item {
 
 class Stat {
     constructor(id,displayName) {
-        game.stats[id].displayName = displayName
+        this.id = id
+        this.displayName = displayName
+        this.amount = 0
     }
 }
