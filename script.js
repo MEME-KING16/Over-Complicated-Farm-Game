@@ -142,10 +142,10 @@ let game = {
     lvl:0,
     xp:0,
     xpreq:100,
-    version:"Over-Complicated-Farm-Game-v0.2.0-rc.1",
+    version:"Over-Complicated-Farm-Game-v0.2.0-rc.2",
     something:0,
     stats:{
-        lifetimewheat: {amount:0, displayName:"Lifetime Wheat"}
+        lifetimewheat: new Stat("lifetimeWheat","Lifetime Wheat")
     }
 }
 
@@ -414,7 +414,7 @@ document.getElementById("Level").addEventListener("mousedown",()=>{
     }, 3000);
 })
 
-new Croptype("carrots","🟧","🟧","🟩","🟩",1,0.4,0.2,0.02)
+new CropType("carrots","🟧","🟧","🟩","🟩",1,0.4,0.2,0.02)
 for (let index = 0; index < crops.length; index++) {
     document.getElementById("cropsel").innerHTML += `<option value="${crops[index]}">${capitalizeFirstLetter(crops[index])}</option>`
 }
